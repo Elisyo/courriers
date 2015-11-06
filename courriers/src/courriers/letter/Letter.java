@@ -1,5 +1,38 @@
 package courriers.letter;
 
-public class Letter {
+import courriers.entities.Habitant;
 
+public abstract class Letter<C extends Content> {
+	
+	/**
+	 *sender and receiver of the letter 
+	 */
+	protected Habitant sender, receiver;
+	
+	/**
+	 * content of the letter
+	 */
+	protected C content;
+	
+	public abstract void doAction();
+	
+	
+	/**
+	 * abstract method which returns the letter's cost
+	 * depends of the letter's type
+	 * @return cost
+	 */
+	public abstract int getCost();
+	
+	
+	
+	/**
+	 * Create a letter with a sender and a receiver
+	 * @param sender
+	 * @param receiver
+	 */
+	public Letter(Habitant sender, Habitant receiver){
+		this.sender = sender;
+		this.receiver = receiver;
+	}
 }

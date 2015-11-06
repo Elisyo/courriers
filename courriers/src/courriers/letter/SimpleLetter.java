@@ -1,5 +1,37 @@
 package courriers.letter;
 
-public class SimpleLetter {
+import courriers.entities.Habitant;
+
+/**
+ * 
+ * SimpleLetter is a Letter with a Text Content
+ * @author breuzon
+ *
+ */
+public class SimpleLetter extends Letter<Text>{
+
+	/**
+	 * cost of the letter
+	 */
+	protected int cost = 1;
+	
+	/**
+	 * Create a SimpleLetter whith a sender and a receiver
+	 * @param sender
+	 * @param receiver
+	 */
+	public SimpleLetter(Habitant sender, Habitant receiver) {
+		super(sender, receiver);
+	}
+
+	@Override
+	public void doAction() {
+		
+	}
+
+	@Override
+	public int getCost() {
+		return cost;
+	}
 
 }

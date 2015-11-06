@@ -1,5 +1,5 @@
 package courriers.letter;
 
-public class Text {
+public class Text implements Content{
 
 }
