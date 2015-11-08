@@ -13,7 +13,7 @@ public class SimpleLetter extends Letter<Text>{
 	/**
 	 * cost of the letter
 	 */
-	protected int cost = 1;
+	protected double cost = 1;
 	
 	/**
 	 * Create a SimpleLetter whith a sender and a receiver
@@ -30,8 +30,8 @@ public class SimpleLetter extends Letter<Text>{
 	}
 
 	@Override
-	public int getCost() {
-		return cost;
+	public double getCost() {
+		return this.cost;
 	}
 
 }

@@ -22,7 +22,7 @@ public abstract class Letter<C extends Content> {
 	 * depends of the letter's type
 	 * @return cost
 	 */
-	public abstract int getCost();
+	public abstract double getCost();
 	
 	
 	

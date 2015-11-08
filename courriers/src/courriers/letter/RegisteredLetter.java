@@ -1,5 +1,24 @@
 package courriers.letter;
 
-public class RegisteredLetter {
+import courriers.entities.Habitant;
+
+public class RegisteredLetter extends Letter<Content>{
+
+	public RegisteredLetter(Habitant sender, Habitant receiver) {
+		super(sender, receiver);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void doAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public double getCost() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
