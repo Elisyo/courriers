@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import tests.entities.MockHabitant;
 import courriers.entities.City;
 import courriers.letter.Letter;
 

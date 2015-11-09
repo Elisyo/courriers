@@ -35,4 +35,33 @@ public abstract class Letter<C extends Content> {
 		this.sender = sender;
 		this.receiver = receiver;
 	}
+
+	
+	
+	/*
+	 * =============================== Getters & setters ================================
+	 */
+	
+	/**
+	 * @return the sender
+	 */
+	public Habitant getSender() {
+		return sender;
+	}
+
+
+	/**
+	 * @return the receiver
+	 */
+	public Habitant getReceiver() {
+		return receiver;
+	}
+	
+	
+	/**
+	 * @return the content of the letter
+	 */
+	public C getContent() {
+		return content;
+	}
 }
