@@ -1,6 +1,7 @@
 package courriers.entities;
 
 import courriers.letter.Letter;
+import courriers.letter.Money;
 
 /**
  * Class that represents an usual Habitant
@@ -70,7 +71,10 @@ public class Habitant {
 	 * @param letter
 	 */
 	public void sendLetter(Letter<?> letter){
-		
+		if(this.bankAccount - letter.getCost() >= 0){
+			this.city.sendLetter(letter);
+			this.bankAccount -= letter.getCost();
+		}
 	}
 	
 	
@@ -79,7 +83,18 @@ public class Habitant {
 	 * @param letter
 	 */
 	public void receiveLetter(Letter<?> letter){
+		System.out.println(letter.getContent().description());
 		
+		/*
+		 * if content is money, add it to bank account
+		 * else Exception
+		 * */
+		try{
+			Money money = (Money) letter.getContent();
+			setBankAccount(bankAccount + money.getAmount());
+		} catch (Exception e){
+			//e.printStackTrace();
+		}
 	}
 	
 

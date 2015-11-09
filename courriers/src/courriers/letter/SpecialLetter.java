@@ -20,7 +20,7 @@ public class SpecialLetter extends Letter<Content>{
 	@Override
 	public double getCost() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.cost;
 	}
 
 	@Override

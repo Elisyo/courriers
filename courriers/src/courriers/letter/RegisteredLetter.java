@@ -9,6 +9,8 @@ import courriers.entities.Habitant;
  */
 public class RegisteredLetter extends Letter<Content>{
 
+	protected double cost = 2.5;
+	
 	public RegisteredLetter(Habitant sender, Habitant receiver) {
 		super(sender, receiver);
 		// TODO Auto-generated constructor stub
@@ -24,7 +26,7 @@ public class RegisteredLetter extends Letter<Content>{
 	@Override
 	public double getCost() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.cost;
 	}
 
 	@Override
