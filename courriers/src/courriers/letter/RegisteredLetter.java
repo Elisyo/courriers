@@ -14,6 +14,7 @@ public class RegisteredLetter extends Letter<Content>{
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	@Override
 	public void doAction() {
 		// TODO Auto-generated method stub
