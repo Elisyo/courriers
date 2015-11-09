@@ -2,6 +2,11 @@ package courriers.letter;
 
 import courriers.entities.Habitant;
 
+/**
+ * Registred Letter
+ * @author breuzon
+ *
+ */
 public class RegisteredLetter extends Letter<Content>{
 
 	public RegisteredLetter(Habitant sender, Habitant receiver) {
