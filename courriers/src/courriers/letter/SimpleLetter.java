@@ -26,7 +26,7 @@ public class SimpleLetter extends Letter<Text>{
 
 	@Override
 	public void doAction() {
-		
+		System.out.println(getContent().description());
 	}
 
 	@Override

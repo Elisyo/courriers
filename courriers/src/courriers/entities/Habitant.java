@@ -54,7 +54,7 @@ public class Habitant {
 	 * add the amount in param to the bank account of the habitant
 	 * @param amount
 	 */
-	public void credit(int amount){
+	public void credit(double amount){
 		this.bankAccount+=amount;
 	}
 	
@@ -62,7 +62,7 @@ public class Habitant {
 	 * soustract the amount in param to the bank account of the habitant
 	 * @param amount
 	 */
-	public void debit(int amount){
+	public void debit(double amount){
 		this.bankAccount-=amount;
 	}
 	
@@ -72,8 +72,8 @@ public class Habitant {
 	 */
 	public void sendLetter(Letter<?> letter){
 		if(this.bankAccount - letter.getCost() >= 0){
+			this.debit(letter.getCost());
 			this.city.sendLetter(letter);
-			this.bankAccount -= letter.getCost();
 		}
 	}
 	
@@ -83,18 +83,7 @@ public class Habitant {
 	 * @param letter
 	 */
 	public void receiveLetter(Letter<?> letter){
-		System.out.println(letter.getContent().description());
-		
-		/*
-		 * if content is money, add it to bank account
-		 * else Exception
-		 * */
-		try{
-			Money money = (Money) letter.getContent();
-			setBankAccount(bankAccount + money.getAmount());
-		} catch (Exception e){
-			//e.printStackTrace();
-		}
+		letter.doAction();
 	}
 	
 
