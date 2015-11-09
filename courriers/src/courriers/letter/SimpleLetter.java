@@ -34,4 +34,10 @@ public class SimpleLetter extends Letter<Text>{
 		return this.cost;
 	}
 
+	@Override
+	public Content getContent() {
+		// TODO Auto-generated method stub
+		return super.content;
+	}
+
 }

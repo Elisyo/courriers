@@ -21,4 +21,10 @@ public class RegisteredLetter extends Letter<Content>{
 		return 0;
 	}
 
+	@Override
+	public Content getContent() {
+		// TODO Auto-generated method stub
+		return super.content;
+	}
+
 }

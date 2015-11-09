@@ -13,8 +13,11 @@ public abstract class LetterTest {
 	MockHabitant receiver = new MockHabitant(new City("c1"));
 	MockHabitant sender = new MockHabitant(new City("c2"));
 	
-	abstract Letter<?> createLetter();
+	protected abstract Letter<?> createLetter();
 	
+	/**
+	 * Test if the cost of the letter is positive
+	 */
 	@Test
 	public void costInLetterTest(){
 		Letter<?> letter = createLetter();

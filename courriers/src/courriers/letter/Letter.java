@@ -36,6 +36,7 @@ public abstract class Letter<C extends Content> {
 		this.receiver = receiver;
 	}
 
+
 	
 	
 	/*
@@ -64,4 +65,5 @@ public abstract class Letter<C extends Content> {
 	public C getContent() {
 		return content;
 	}
+
 }

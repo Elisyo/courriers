@@ -14,6 +14,7 @@ public class SimpleLetterTest extends LetterTest {
 	
 	@Test
 	public void contentInSimpleLetter(){
+
 		@SuppressWarnings("unused")
 		Text text = new SimpleLetter(sender, receiver).getContent();
 	}
