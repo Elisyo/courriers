@@ -109,7 +109,7 @@ public class Habitant {
 		return name;
 	}
 
-	/**
+	/** 
 	 * @return habitant's city
 	 */
 	public City getCity() {
