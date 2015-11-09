@@ -81,6 +81,7 @@ public class Habitant {
 	public void receiveLetter(Letter<?> letter){
 		
 	}
+	
 
 	
 	/*
