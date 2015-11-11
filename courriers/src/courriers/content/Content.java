@@ -1,9 +1,9 @@
-package courriers.letter;
+package courriers.content;
 
 public interface Content {
 	/**
 	 * Returns the description of the letter. 
 	 * @return
 	 */
-	String description();
+	public String description();
 }

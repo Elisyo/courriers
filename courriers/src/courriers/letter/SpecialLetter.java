@@ -1,5 +1,6 @@
 package courriers.letter;
 
+import courriers.content.Content;
 import courriers.entities.Habitant;
 
 public class SpecialLetter extends Letter<Content>{

@@ -1,10 +1,11 @@
 package courriers.letter;
 
+import courriers.content.Text;
 import courriers.entities.Habitant;
 
 /**
  * 
- * SimpleLetter is a Letter with a Text Content
+ * SimpleLetter is a letter with a text content and a fixed cost
  * @author breuzon
  *
  */

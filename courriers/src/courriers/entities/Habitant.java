@@ -1,7 +1,7 @@
 package courriers.entities;
 
+import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
-import courriers.letter.Money;
 
 /**
  * Class that represents an usual Habitant
@@ -69,20 +69,24 @@ public class Habitant {
 	/**
 	 * Send a letter to the city's post box
 	 * @param letter
+	 * @throws NotEnoughMoneyException 
 	 */
-	public void sendLetter(Letter<?> letter){
+	public void sendLetter(Letter<?> letter) throws NotEnoughMoneyException{
 		if(this.bankAccount - letter.getCost() >= 0){
 			this.debit(letter.getCost());
 			this.city.sendLetter(letter);
 		}
+		else
+			throw new NotEnoughMoneyException("You don't have enough money");
 	}
 	
 	
 	/**
 	 * Receive a letter from another habitant 
 	 * @param letter
+	 * @throws NotEnoughMoneyException 
 	 */
-	public void receiveLetter(Letter<?> letter){
+	public void receiveLetter(Letter<?> letter) throws NotEnoughMoneyException{
 		letter.doAction();
 	}
 	

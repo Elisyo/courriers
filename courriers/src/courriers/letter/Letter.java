@@ -1,6 +1,9 @@
 package courriers.letter;
 
+import courriers.content.Content;
+import courriers.content.Text;
 import courriers.entities.Habitant;
+import courriers.exceptions.NotEnoughMoneyException;
 
 public abstract class Letter<C extends Content> {
 	
@@ -14,7 +17,11 @@ public abstract class Letter<C extends Content> {
 	 */
 	protected C content;
 	
-	public abstract void doAction();
+	/**
+	 * Action when the receiver receive his letter
+	 * @throws NotEnoughMoneyException 
+	 */
+	public abstract void doAction() throws NotEnoughMoneyException;
 	
 	
 	/**
@@ -26,10 +33,12 @@ public abstract class Letter<C extends Content> {
 	
 	
 	
+
 	/**
-	 * Create a letter with a sender and a receiver
+	 * Create a letter with a sender, a receiver and a content
 	 * @param sender
 	 * @param receiver
+	 * @param content
 	 */
 	public Letter(Habitant sender, Habitant receiver){
 		this.sender = sender;

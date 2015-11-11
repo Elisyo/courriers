@@ -2,9 +2,10 @@ package tests.letter;
 
 import org.junit.Test;
 
+import courriers.content.Text;
 import courriers.letter.Letter;
 import courriers.letter.SimpleLetter;
-import courriers.letter.Text;
+
 
 public class SimpleLetterTest extends LetterTest {
 
