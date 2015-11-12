@@ -4,6 +4,9 @@ import courriers.entities.City;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
+import courriers.letter.RegisteredLetter;
+import courriers.letter.SimpleLetter;
+import courriers.letter.UrgentLetter;
 import courriers.utils.RandomGenerator;
 
 /**
@@ -41,6 +44,17 @@ public class Main {
 		//the random letter
 		Letter<?> randomLetter;
 		
+		
+		//TESST
+		SimpleLetter simple = new SimpleLetter(inhabitants[1],inhabitants[4]);
+
+		UrgentLetter<SimpleLetter> let=new UrgentLetter<SimpleLetter>(simple);
+		UrgentLetter<SimpleLetter> let2=new UrgentLetter<>(let);
+		
+		RegisteredLetter<UrgentLetter<SimpleLetter>> l= new RegisteredLetter<UrgentLetter<SimpleLetter>>(let);
+		UrgentLetter<RegisteredLetter> let3=new UrgentLetter<RegisteredLetter>(l);
+		
+		//END TEST
 		System.out.println("Mailing letters for "+days+" days");
 		
 		for(int k=1;k<days+1;k++){

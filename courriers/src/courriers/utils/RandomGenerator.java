@@ -32,7 +32,7 @@ public class RandomGenerator {
 	 * @return a random letter type
 	 */
 	public static Letter<?> generateRandomLetter(Inhabitant sender,Inhabitant receiver){
-		Letter<?>[] letterTab = new Letter[]{new SimpleLetter(sender,receiver),new PromissoryNote(sender,receiver),new RegisteredLetter(sender,receiver), new SpecialLetter(sender,receiver)};
+		Letter<?>[] letterTab = new Letter[]{new SimpleLetter(sender,receiver),new PromissoryNote(sender,receiver),new RegisteredLetter(generateRandomLetter(sender,receiver))};
 		return letterTab[generateRandomNumber(0,letterTab.length)];
 	}
 	

@@ -9,7 +9,6 @@ public class SpecialLetter extends Letter<Content>{
 	
 	public SpecialLetter(Inhabitant sender, Inhabitant receiver) {
 		super(sender, receiver);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

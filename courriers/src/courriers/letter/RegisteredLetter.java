@@ -1,20 +1,19 @@
 package courriers.letter;
 
 import courriers.content.Content;
-import courriers.entities.Inhabitant;
 
 /**
  * Registred Letter
  * @author breuzon
  *
  */
-public class RegisteredLetter extends Letter<Content>{
+public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter{
 
 	protected double cost = 2.5;
-	
-	public RegisteredLetter(Inhabitant sender, Inhabitant receiver) {
-		super(sender, receiver);
-		// TODO Auto-generated constructor stub
+	Letter<Content> letter;
+	public RegisteredLetter(Letter<Content> letter) {
+		super(letter.getSender(), letter.getReceiver());
+		this.letter=letter;
 	}
 
 	
