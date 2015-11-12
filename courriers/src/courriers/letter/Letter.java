@@ -1,8 +1,7 @@
 package courriers.letter;
 
 import courriers.content.Content;
-import courriers.content.Text;
-import courriers.entities.Habitant;
+import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 
 public abstract class Letter<C extends Content> {
@@ -10,7 +9,7 @@ public abstract class Letter<C extends Content> {
 	/**
 	 *sender and receiver of the letter 
 	 */
-	protected Habitant sender, receiver;
+	protected Inhabitant sender, receiver;
 	
 	/**
 	 * content of the letter
@@ -40,7 +39,7 @@ public abstract class Letter<C extends Content> {
 	 * @param receiver
 	 * @param content
 	 */
-	public Letter(Habitant sender, Habitant receiver){
+	public Letter(Inhabitant sender, Inhabitant receiver){
 		this.sender = sender;
 		this.receiver = receiver;
 	}
@@ -55,7 +54,7 @@ public abstract class Letter<C extends Content> {
 	/**
 	 * @return the sender
 	 */
-	public Habitant getSender() {
+	public Inhabitant getSender() {
 		return sender;
 	}
 
@@ -63,7 +62,7 @@ public abstract class Letter<C extends Content> {
 	/**
 	 * @return the receiver
 	 */
-	public Habitant getReceiver() {
+	public Inhabitant getReceiver() {
 		return receiver;
 	}
 	

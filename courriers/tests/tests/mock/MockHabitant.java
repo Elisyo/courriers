@@ -1,9 +1,9 @@
 package tests.mock;
 
 import courriers.entities.City;
-import courriers.entities.Habitant;
+import courriers.entities.Inhabitant;
 
-public class MockHabitant extends Habitant{
+public class MockHabitant extends Inhabitant{
 
 	public MockHabitant(String name,City city) {
 		super(name, city);

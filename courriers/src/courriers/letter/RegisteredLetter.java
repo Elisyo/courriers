@@ -1,7 +1,7 @@
 package courriers.letter;
 
 import courriers.content.Content;
-import courriers.entities.Habitant;
+import courriers.entities.Inhabitant;
 
 /**
  * Registred Letter
@@ -12,7 +12,7 @@ public class RegisteredLetter extends Letter<Content>{
 
 	protected double cost = 2.5;
 	
-	public RegisteredLetter(Habitant sender, Habitant receiver) {
+	public RegisteredLetter(Inhabitant sender, Inhabitant receiver) {
 		super(sender, receiver);
 		// TODO Auto-generated constructor stub
 	}

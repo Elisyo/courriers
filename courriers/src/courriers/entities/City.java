@@ -16,7 +16,8 @@ public class City {
 	 * Name of the city 
 	 */
 	protected String name;
-	
+
+
 	/**
 	 * Letter's list of the habitants in the city
 	 */
@@ -47,6 +48,14 @@ public class City {
 		for(Letter<?> letter : this.postBox){
 			letter.getReceiver().receiveLetter(letter);
 		}
+	}
+	
+	
+	/**
+	 * @return the city's name
+	 */
+	public String getName() {
+		return name;
 	}
 
 }

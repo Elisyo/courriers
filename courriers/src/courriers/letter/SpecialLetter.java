@@ -1,13 +1,13 @@
 package courriers.letter;
 
 import courriers.content.Content;
-import courriers.entities.Habitant;
+import courriers.entities.Inhabitant;
 
 public class SpecialLetter extends Letter<Content>{
 
 	protected double cost = 2;
 	
-	public SpecialLetter(Habitant sender, Habitant receiver) {
+	public SpecialLetter(Inhabitant sender, Inhabitant receiver) {
 		super(sender, receiver);
 		// TODO Auto-generated constructor stub
 	}

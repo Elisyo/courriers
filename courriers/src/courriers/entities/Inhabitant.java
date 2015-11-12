@@ -2,13 +2,14 @@ package courriers.entities;
 
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
+import courriers.utils.Constants;
 
 /**
  * Class that represents an usual Habitant
  * @author breuzon
  *
  */
-public class Habitant {
+public class Inhabitant {
 	
 	/**
 	 * Names of the Habitant, and his address
@@ -28,13 +29,13 @@ public class Habitant {
 	private double bankAccount;
 	
 	/**
-	 * Create an habitant with a amount bank account equals at 0
+	 * Create an habitant with a amount bank account 100
 	 * 
 	 * @param name
 	 * @param city
 	 */
-	public Habitant(String name, City city){
-		this(name,city,0);
+	public Inhabitant(String name, City city){
+		this(name,city,Constants.initialBankAccount);
 	}
 	
 	/**
@@ -44,7 +45,7 @@ public class Habitant {
 	 * @param city
 	 * @param amountBankAccount
 	 */
-	public Habitant(String name, City city, double amountBankAccount){
+	public Inhabitant(String name, City city, double amountBankAccount){
 		this.name=name;
 		this.city = city;
 		this.bankAccount = amountBankAccount;

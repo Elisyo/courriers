@@ -1,7 +1,7 @@
 package courriers.letter;
 
 import courriers.content.Text;
-import courriers.entities.Habitant;
+import courriers.entities.Inhabitant;
 
 /**
  * 
@@ -21,7 +21,7 @@ public class SimpleLetter extends Letter<Text>{
 	 * @param sender
 	 * @param receiver
 	 */
-	public SimpleLetter(Habitant sender, Habitant receiver) {
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver) {
 		super(sender, receiver);
 	}
 
