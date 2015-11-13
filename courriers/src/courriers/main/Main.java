@@ -1,9 +1,10 @@
 package courriers.main;
 
+import courriers.content.Text;
 import courriers.entities.City;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
-import courriers.letter.Letter;
+import courriers.letter.SimpleLetter;
 import courriers.utils.RandomGenerator;
 
 /**
@@ -14,7 +15,7 @@ import courriers.utils.RandomGenerator;
 public class Main {
 	
 	protected static int maxInhabitants = 100;
-	protected static int days=6;
+	protected static int days=2;
 	
 	public static void main(String [] args){
 		
@@ -39,51 +40,48 @@ public class Main {
 		int inhabitantReceiver;
 		
 		//the random letter
-		Letter<?> randomLetter;
-		
-		
-		//TESST
-		//SimpleLetter simple = new SimpleLetter(inhabitants[1],inhabitants[4]);
-
-		/*UrgentLetter<SimpleLetter> let=new UrgentLetter<SimpleLetter>(simple);
-		UrgentLetter<UrgentLetter> let2=new UrgentLetter<>(let);
-		
-		RegisteredLetter<UrgentLetter<SimpleLetter>> l= new RegisteredLetter<UrgentLetter<SimpleLetter>>(let);
-		UrgentLetter<RegisteredLetter> let3=new UrgentLetter<RegisteredLetter>(l);
-		*/
-		//END TEST
+		//Letter<?> randomLetter;
 		
 		
 		
 		System.out.println("Mailing letters for "+days+" days");
-		int actualDay;
+		int actualDay=0;
 		
-		for(actualDay=1;actualDay<days+1;actualDay++){
-			
+		do{
+			actualDay++;
 			System.out.println("**********************************************");
 			System.out.println("Day "+actualDay);
-			
-			//generate the random number of inhabitants
-			numberOfInhabitant= RandomGenerator.generateRandomNumber(1, maxInhabitants);
-			
-			//A random inhabitant send a random letter to another random inhabitant
-			for(int i =0;i<numberOfInhabitant;i++){
+			city.distributeLetters();
+			if(actualDay<=days){
 				
-				//generate random index of inhabitants
-				inhabitantSender=RandomGenerator.generateRandomNumber(1, maxInhabitants);
-				inhabitantReceiver = RandomGenerator.generateRandomNumber(1, maxInhabitants);
-			
-				//generate a random letter type
-				randomLetter=RandomGenerator.generateRandomLetter(inhabitants[inhabitantSender], inhabitants[inhabitantReceiver]);
-			
+
+				//generate the random number of inhabitants
+				numberOfInhabitant= RandomGenerator.generateRandomNumber(1, maxInhabitants);
 				
-				try {
-					inhabitants[inhabitantSender].sendLetter(randomLetter);
-				} catch (NotEnoughMoneyException e) {
-					System.out.println(inhabitants[inhabitantSender]+" doesn't have money anymore");
-				}
+
+				for(int i =0;i<numberOfInhabitant;i++){
+					
+					//generate random index of inhabitants
+					inhabitantSender=RandomGenerator.generateRandomNumber(1, maxInhabitants);
+					inhabitantReceiver = RandomGenerator.generateRandomNumber(1, maxInhabitants);
+				
+					//generate a random letter type
+					//randomLetter=RandomGenerator.generateRandomLetter(inhabitants[inhabitantSender], inhabitants[inhabitantReceiver]);
+				
+					
+					
+					try {
+						inhabitants[inhabitantSender].sendLetter(new SimpleLetter(inhabitants[inhabitantSender],inhabitants[inhabitantReceiver],new Text("yo")));
+					} catch (NotEnoughMoneyException e) {
+						System.out.println(inhabitants[inhabitantSender]+" doesn't have money anymore");
+					}
+				}		
 			}
-		}
+			else { //if got some letters in the postbox
+				
+			}
+			
+		}while(!city.getPostBox().isEmpty()); 
 	}
 
 }

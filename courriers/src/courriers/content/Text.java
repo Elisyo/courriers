@@ -23,7 +23,7 @@ public class Text implements Content{
 
 	@Override
 	public String description() {
-		return this.description;
+		return "text content ("+this.description+")";
 	}
 
 }

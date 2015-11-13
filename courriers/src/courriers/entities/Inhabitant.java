@@ -26,7 +26,7 @@ public class Inhabitant {
 	/**
 	 * The amount of his bank account
 	 */
-	private double bankAccount;
+	private int bankAccount;
 	
 	/**
 	 * Create an habitant with a amount bank account 100
@@ -45,7 +45,7 @@ public class Inhabitant {
 	 * @param city
 	 * @param amountBankAccount
 	 */
-	public Inhabitant(String name, City city, double amountBankAccount){
+	public Inhabitant(String name, City city, int amountBankAccount){
 		this.name=name;
 		this.city = city;
 		this.bankAccount = amountBankAccount;
@@ -55,16 +55,18 @@ public class Inhabitant {
 	 * add the amount in param to the bank account of the habitant
 	 * @param amount
 	 */
-	public void credit(double amount){
+	public void credit(int amount){
 		this.bankAccount+=amount;
+		System.out.println("   + "+this.name+" account is credited with "+amount+" euros; its balance is now "+bankAccount+" euros");
 	}
 	
 	/**
 	 * soustract the amount in param to the bank account of the habitant
 	 * @param amount
 	 */
-	public void debit(double amount){
+	public void debit(int amount){
 		this.bankAccount-=amount;
+		System.out.println("   - "+amount+" euros are debited from "+this.name+" account whose balance is now "+bankAccount+" euros");
 	}
 	
 	/**
@@ -74,6 +76,10 @@ public class Inhabitant {
 	 */
 	public void sendLetter(Letter<?> letter) throws NotEnoughMoneyException{
 		if(this.bankAccount - letter.getCost() >= 0){
+			String euros=" euro";
+			if(letter.getCost()>1)
+				euros=" euros";
+			System.out.println("-> "+this.name+" mails "+letter.description()+" whose content is a "+letter.getContent().description()+" to "+letter.getReceiver().getName()+" for a cost of "+letter.getCost()+euros);
 			this.debit(letter.getCost());
 			this.city.sendLetter(letter);
 		}
@@ -87,8 +93,13 @@ public class Inhabitant {
 	 * @param letter
 	 * @throws NotEnoughMoneyException 
 	 */
-	public void receiveLetter(Letter<?> letter) throws NotEnoughMoneyException{
-		letter.doAction();
+	public void receiveLetter(Letter<?> letter){
+		System.out.println("<- "+this.name+" receives "+letter.description()+" whose content is a "+letter.getContent().description()+" from "+letter.getSender().getName());
+		try {
+			letter.doAction();
+		} catch (NotEnoughMoneyException e) {
+			e.printStackTrace();
+		}
 	}
 	
 
@@ -108,7 +119,7 @@ public class Inhabitant {
 	/**
 	 * @param bankAccount
 	 */
-	public void setBankAccount(double bankAccount) {
+	public void setBankAccount(int bankAccount) {
 		this.bankAccount = bankAccount;
 	}
 

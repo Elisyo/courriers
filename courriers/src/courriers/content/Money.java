@@ -30,7 +30,7 @@ public class Money implements Content{
 	
 	@Override
 	public String description() {
-		return "Money " + amount + "�.";
+		return "text content ("+this.amount+")";
 	}
 
 }

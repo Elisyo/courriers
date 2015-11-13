@@ -9,7 +9,7 @@ public class MockHabitant extends Inhabitant{
 		super(name, city);
 	}
 	
-	public MockHabitant(String name,City city, double bankAccount) {
+	public MockHabitant(String name,City city, int bankAccount) {
 		super(name, city, bankAccount);
 
 	}

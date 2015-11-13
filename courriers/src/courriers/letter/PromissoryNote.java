@@ -35,7 +35,7 @@ public class PromissoryNote extends Letter<Money>{
 	}
 
 	@Override
-	public double getCost() {
+	public int getCost() {
 		return 1+(1/100*this.amount);
 	}
 	
@@ -45,7 +45,7 @@ public class PromissoryNote extends Letter<Money>{
 
 	@Override
 	public String description() {
-		return "PromissoryNote";
+		return "a promissory note";
 	}
 
 }

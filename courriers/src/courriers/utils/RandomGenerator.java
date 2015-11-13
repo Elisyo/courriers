@@ -24,7 +24,7 @@ public class RandomGenerator {
 	 */
 	public static int generateRandomNumber(int min,int max){
 		Random r = new Random();
-		return r.nextInt(max)+min;
+		return r.nextInt(max-min)+min;
 	}
 	
 	

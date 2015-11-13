@@ -28,7 +28,7 @@ public abstract class Letter<C extends Content> implements Content{
 	 * depends of the letter's type
 	 * @return cost
 	 */
-	public abstract double getCost();
+	public abstract int getCost();
 	
 	
 	

@@ -19,7 +19,7 @@ public class MockLetter extends Letter<Content>{
 	}
 
 	@Override
-	public double getCost() {
+	public int getCost() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -2,6 +2,7 @@ package courriers.letter;
 
 import courriers.content.Text;
 import courriers.entities.Inhabitant;
+import courriers.utils.Constants;
 
 /**
  * 
@@ -14,7 +15,7 @@ public class SimpleLetter extends Letter<Text>{
 	/**
 	 * cost of the letter
 	 */
-	protected double cost = 1;
+	protected int cost = Constants.costOfSimpleLetter;
 	
 	/**
 	 * Create a SimpleLetter whith a sender and a receiver
@@ -32,17 +33,17 @@ public class SimpleLetter extends Letter<Text>{
 
 	@Override
 	public void doAction() {
-		System.out.println(getContent().description());
+		//System.out.println(getContent().description());
 	}
 
 	@Override
-	public double getCost() {
+	public int getCost() {
 		return this.cost;
 	}
 
 	@Override
 	public String description() {
-		return "simple letter";
+		return "a simple letter";
 	}
 
 

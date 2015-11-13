@@ -1,44 +1,43 @@
 package courriers.letter;
 
 import courriers.content.Content;
+import courriers.content.Text;
+import courriers.exceptions.NotEnoughMoneyException;
 
 /**
  * Registred Letter can contains all others letters
  * @author Loic
  *
  */
-public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter<?>>{
+public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter<?>>{	
 
-	protected double cost = 2.5;
-
+	/**
+	 * @param letter
+	 */
 	public RegisteredLetter(Letter<?> letter) {
 		super(letter);
-
 	}
 
 	
 	@Override
-	public void doAction() {
-		// TODO Auto-generated method stub
-		
+	public void doAction() throws NotEnoughMoneyException {
+		receiver.sendLetter(new SimpleLetter(receiver,sender,new Text("(aknowledgment of receipt for a registered letter whose content is a "+ this.letterType.getContent().toString()+" whose "+this.letterType.getContent().description())));		
 	}
 
 	@Override
-	public double getCost() {
-		// TODO Auto-generated method stub
-		return this.cost;
+	public int getCost() {
+		return 15+this.letterType.getCost();
 	}
 
 	@Override
 	public Content getContent() {
-		// TODO Auto-generated method stub
 		return super.content;
 	}
 
 
 	@Override
 	public String description() {
-		return "Registered Letter";
+		return "a registered letter";
 	}
 
 }

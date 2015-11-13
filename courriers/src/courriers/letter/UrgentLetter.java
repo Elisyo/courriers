@@ -12,8 +12,6 @@ import courriers.exceptions.NotEnoughMoneyException;
  */
 public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<Letter<?>>{
 
-
-	
 	/**
 	 * @param letter
 	 */
@@ -23,18 +21,17 @@ public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<Letter<?>>{
 
 	@Override
 	public void doAction() throws NotEnoughMoneyException {
-		// TODO Auto-generated method stub
-		
+		this.letterType.doAction();	
 	}
 
 	@Override
-	public double getCost() {
-		return 0;
+	public int getCost() {
+		return this.letterType.getCost()*2;
 	}
 
 	@Override
 	public String description() {
-		return "Urgent Letter";
+		return "an urgent letter";
 	}
 
 }

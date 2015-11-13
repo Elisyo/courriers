@@ -1,5 +1,6 @@
 package courriers.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import courriers.exceptions.NotEnoughMoneyException;
@@ -22,14 +23,14 @@ public class City {
 	 * Letter's list of the habitants in the city
 	 */
 	protected List<Letter<?>> postBox;
-	
-	
+
 	/**
 	 * Create a city
 	 * @param name of the city
 	 */
 	public City(String name) {
 		this.name=name;
+		this.postBox=new ArrayList<Letter<?>>();
 	}
 	
 	/**
@@ -44,11 +45,11 @@ public class City {
 	 * Distribute all the letters to their receiver every day
 	 * @throws NotEnoughMoneyException 
 	 */
-	public void distributeLetters() throws NotEnoughMoneyException{
+	public void distributeLetters(){
 		for(Letter<?> letter : this.postBox){
 			letter.getReceiver().receiveLetter(letter);
-			this.postBox.remove(letter);
 		}
+		this.postBox.clear();
 	}
 	
 	
@@ -57,6 +58,14 @@ public class City {
 	 */
 	public String getName() {
 		return name;
+	}
+	
+	
+	/**
+	 * @return the postBox
+	 */
+	public List<Letter<?>> getPostBox() {
+		return postBox;
 	}
 
 }
