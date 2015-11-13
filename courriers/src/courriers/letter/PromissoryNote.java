@@ -38,5 +38,9 @@ public class PromissoryNote extends Letter<Money>{
 	public double getCost() {
 		return 1+(1/100*this.amount);
 	}
+	
+	public double getAmount(){
+		return this.amount;
+	}
 
 }
