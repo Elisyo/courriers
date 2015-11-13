@@ -1,17 +1,16 @@
 package tests.letter;
 
-import courriers.content.Content;
+import courriers.entities.Inhabitant;
 import courriers.letter.Letter;
+import courriers.letter.SpecialLetter;
 import courriers.letter.RegisteredLetter;
 
-public class RegistredLetterTest extends LetterTest{
+public class RegistredLetterTest<L extends Letter<?>> extends DecoratingLetterTest<Letter<?>>{
 
-	protected Letter<Content> letter;
-	
 	@Override
-	protected Letter<?> createLetter() {
+	protected SpecialLetter<Letter<?>> createLetter(Inhabitant sender, Inhabitant receiver) {
 		// TODO Auto-generated method stub
-		return new RegisteredLetter<Letter<?>>(letter);
+		return new RegisteredLetter<>(mockletter);
 	}
 
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 import courriers.content.Money;
 import courriers.letter.Letter;
 import courriers.letter.PromissoryNote;
+import courriers.utils.Constants;
 
 public class PromissoryNoteTest extends LetterTest{
 
@@ -25,6 +26,11 @@ public class PromissoryNoteTest extends LetterTest{
 	@Test
 	public void amountPositiveTest(){
 		assertTrue(new PromissoryNote(sender, receiver).getAmount() > 0);
+	}
+	
+	@Test
+	public void maxAmountTest(){
+		assertTrue(new PromissoryNote(sender, receiver).getAmount() < Constants.maxPromissoryNoteAmount);
 	}
 
 	
