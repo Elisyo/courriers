@@ -9,7 +9,7 @@ import courriers.exceptions.NotEnoughMoneyException;
  *
  * @param <L>
  */
-public class SpecialLetter<L extends Letter<?>> extends Letter<Content>{
+public abstract class SpecialLetter<L extends Letter<?>> extends Letter<Content>{
 
 	protected double cost = 2;
 	protected Letter<?> letterType;
@@ -38,5 +38,7 @@ public class SpecialLetter<L extends Letter<?>> extends Letter<Content>{
 		// TODO Auto-generated method stub
 		return super.content;
 	}
+
+	public abstract String description();
 
 }

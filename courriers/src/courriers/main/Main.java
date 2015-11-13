@@ -4,9 +4,6 @@ import courriers.entities.City;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
-import courriers.letter.RegisteredLetter;
-import courriers.letter.SimpleLetter;
-import courriers.letter.UrgentLetter;
 import courriers.utils.RandomGenerator;
 
 /**
@@ -46,21 +43,25 @@ public class Main {
 		
 		
 		//TESST
-		SimpleLetter simple = new SimpleLetter(inhabitants[1],inhabitants[4]);
+		//SimpleLetter simple = new SimpleLetter(inhabitants[1],inhabitants[4]);
 
-		UrgentLetter<SimpleLetter> let=new UrgentLetter<SimpleLetter>(simple);
-		UrgentLetter<SimpleLetter> let2=new UrgentLetter<>(let);
+		/*UrgentLetter<SimpleLetter> let=new UrgentLetter<SimpleLetter>(simple);
+		UrgentLetter<UrgentLetter> let2=new UrgentLetter<>(let);
 		
 		RegisteredLetter<UrgentLetter<SimpleLetter>> l= new RegisteredLetter<UrgentLetter<SimpleLetter>>(let);
-		//UrgentLetter<RegisteredLetter> let3=new UrgentLetter<RegisteredLetter>(l);
-		
+		UrgentLetter<RegisteredLetter> let3=new UrgentLetter<RegisteredLetter>(l);
+		*/
 		//END TEST
-		System.out.println("Mailing letters for "+days+" days");
 		
-		for(int k=1;k<days+1;k++){
+		
+		
+		System.out.println("Mailing letters for "+days+" days");
+		int actualDay;
+		
+		for(actualDay=1;actualDay<days+1;actualDay++){
 			
 			System.out.println("**********************************************");
-			System.out.println("Day "+k);
+			System.out.println("Day "+actualDay);
 			
 			//generate the random number of inhabitants
 			numberOfInhabitant= RandomGenerator.generateRandomNumber(1, maxInhabitants);

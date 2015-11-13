@@ -1,6 +1,7 @@
 package courriers.letter;
 
 import courriers.content.Money;
+import courriers.content.Text;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.utils.RandomGenerator;
@@ -27,8 +28,7 @@ public class PromissoryNote extends Letter<Money>{
 		if(sender.getBankAccount() - this.amount >= 0){
 			sender.debit(amount);
 			receiver.credit(amount);
-			//Text text = new Text("thanks for a promissory note letter whose content is a money content ("+this.amount+")");
-			receiver.sendLetter(new SimpleLetter(receiver,sender));
+			receiver.sendLetter(new SimpleLetter(receiver,sender,new Text("thanks for a promissory note letter whose content is a money content ("+this.amount+")")));
 		}
 		else
 			throw new NotEnoughMoneyException("You don't have enough money");
@@ -41,6 +41,11 @@ public class PromissoryNote extends Letter<Money>{
 	
 	public double getAmount(){
 		return this.amount;
+	}
+
+	@Override
+	public String description() {
+		return "PromissoryNote";
 	}
 
 }

@@ -1,7 +1,7 @@
 package courriers.letter;
 
 
-import courriers.content.Content;
+
 import courriers.exceptions.NotEnoughMoneyException;
 
 /**
@@ -10,7 +10,7 @@ import courriers.exceptions.NotEnoughMoneyException;
  *
  * @param <L>
  */
-public class UrgentLetter<L extends Letter<? extends Content>> extends SpecialLetter<Letter<?>>{
+public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<Letter<?>>{
 
 
 	
@@ -30,6 +30,11 @@ public class UrgentLetter<L extends Letter<? extends Content>> extends SpecialLe
 	@Override
 	public double getCost() {
 		return 0;
+	}
+
+	@Override
+	public String description() {
+		return "Urgent Letter";
 	}
 
 }

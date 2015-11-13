@@ -47,6 +47,7 @@ public class City {
 	public void distributeLetters() throws NotEnoughMoneyException{
 		for(Letter<?> letter : this.postBox){
 			letter.getReceiver().receiveLetter(letter);
+			this.postBox.remove(letter);
 		}
 	}
 	

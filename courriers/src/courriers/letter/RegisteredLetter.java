@@ -35,4 +35,10 @@ public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter
 		return super.content;
 	}
 
+
+	@Override
+	public String description() {
+		return "Registered Letter";
+	}
+
 }

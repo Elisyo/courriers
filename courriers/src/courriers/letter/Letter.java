@@ -4,7 +4,7 @@ import courriers.content.Content;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 
-public abstract class Letter<C extends Content> {
+public abstract class Letter<C extends Content> implements Content{
 	
 	/**
 	 *sender and receiver of the letter 
@@ -34,7 +34,7 @@ public abstract class Letter<C extends Content> {
 	
 
 	/**
-	 * Create a letter with a sender, a receiver and a content
+	 * Create a letter with a sender, a receiver
 	 * @param sender
 	 * @param receiver
 	 * @param content
@@ -44,7 +44,16 @@ public abstract class Letter<C extends Content> {
 		this.receiver = receiver;
 	}
 
-
+	/**
+	 * @param sender
+	 * @param receiver
+	 * @param content
+	 */
+	public Letter(Inhabitant sender, Inhabitant receiver, C content){
+		this.sender = sender;
+		this.receiver = receiver;
+		this.content=content;
+	}
 	
 	
 	/*

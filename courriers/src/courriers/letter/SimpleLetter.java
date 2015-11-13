@@ -22,8 +22,13 @@ public class SimpleLetter extends Letter<Text>{
 	 * @param receiver
 	 */
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver) {
-		super(sender, receiver);
+		this(sender, receiver,new Text("bla bla"));
 	}
+	
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver,Text text) {
+		super(sender, receiver,text);
+	}
+	
 
 	@Override
 	public void doAction() {
@@ -33,6 +38,11 @@ public class SimpleLetter extends Letter<Text>{
 	@Override
 	public double getCost() {
 		return this.cost;
+	}
+
+	@Override
+	public String description() {
+		return "simple letter";
 	}
 
 
