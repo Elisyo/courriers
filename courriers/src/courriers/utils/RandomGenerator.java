@@ -7,7 +7,7 @@ import courriers.letter.Letter;
 import courriers.letter.PromissoryNote;
 import courriers.letter.RegisteredLetter;
 import courriers.letter.SimpleLetter;
-import courriers.letter.SpecialLetter;
+import courriers.letter.UrgentLetter;
 
 
 /**
@@ -32,8 +32,23 @@ public class RandomGenerator {
 	 * @return a random letter type
 	 */
 	public static Letter<?> generateRandomLetter(Inhabitant sender,Inhabitant receiver){
-		Letter<?>[] letterTab = new Letter[]{new SimpleLetter(sender,receiver),new PromissoryNote(sender,receiver),new RegisteredLetter(generateRandomLetter(sender,receiver))};
+		Letter<?>[] letterTab = new Letter<?>[]{new SimpleLetter(sender,receiver),new PromissoryNote(sender,receiver),new RegisteredLetter<Letter<?>>(generateRandomSimpleLetter(sender,receiver)),new UrgentLetter<Letter<?>>(generateRandomSimpleLetter(sender,receiver))};
 		return letterTab[generateRandomNumber(0,letterTab.length)];
 	}
+	
+	
+	/**
+	 * @return a random content
+	 */
+	public static Letter<?> generateRandomSimpleLetter(Inhabitant sender,Inhabitant receiver){
+		Letter<?>[] letterTab = new Letter<?>[]{new SimpleLetter(sender,receiver),new PromissoryNote(sender,receiver)};
+		return letterTab[generateRandomNumber(0,letterTab.length)];
+	}
+	/*
+	public static Letter<?> generateRandomLetterType(Inhabitant sender,Inhabitant receiver){
+		Letter<?>[] letterType = new Letter<?>[] {};
+		return letterType[generateRandomNumber(0,letterType.length)];
+	}*/
+	
 	
 }

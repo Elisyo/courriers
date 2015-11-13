@@ -12,7 +12,7 @@ public class Money implements Content{
 	/**
 	 * amount of the letter
 	 */
-	private double amount;
+	private int amount;
 	
 	/**
 	 * @param amount
@@ -30,7 +30,7 @@ public class Money implements Content{
 	
 	@Override
 	public String description() {
-		return "text content ("+this.amount+")";
+		return "money content ("+this.amount+")";
 	}
 
 }

@@ -17,7 +17,8 @@ public abstract class SpecialLetter<L extends Letter<?>> extends Letter<Content>
 	 * @param letter
 	 */
 	public SpecialLetter(Letter<?> letter) {
-		super(letter.getSender(), letter.getReceiver());
+		super(letter.getSender(), letter.getReceiver(),letter.getContent());
+		this.letterType=letter;
 	}
 
 	@Override

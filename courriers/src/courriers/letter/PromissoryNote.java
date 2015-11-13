@@ -15,7 +15,7 @@ public class PromissoryNote extends Letter<Money>{
 	protected int amount;
 
 	public PromissoryNote(Inhabitant sender, Inhabitant receiver,int amount) {
-		super(sender, receiver);
+		super(sender, receiver,new Money(amount));
 		this.amount=amount;
 	}
 	

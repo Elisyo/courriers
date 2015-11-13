@@ -1,10 +1,8 @@
 package courriers.main;
-
-import courriers.content.Text;
 import courriers.entities.City;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
-import courriers.letter.SimpleLetter;
+import courriers.letter.Letter;
 import courriers.utils.RandomGenerator;
 
 /**
@@ -38,9 +36,8 @@ public class Main {
 		//the random number inhabitant (sender & receiver)
 		int inhabitantSender;
 		int inhabitantReceiver;
-		
 		//the random letter
-		//Letter<?> randomLetter;
+		Letter<?> randomLetter=null;
 		
 		
 		
@@ -64,23 +61,17 @@ public class Main {
 					//generate random index of inhabitants
 					inhabitantSender=RandomGenerator.generateRandomNumber(1, maxInhabitants);
 					inhabitantReceiver = RandomGenerator.generateRandomNumber(1, maxInhabitants);
-				
 					//generate a random letter type
-					//randomLetter=RandomGenerator.generateRandomLetter(inhabitants[inhabitantSender], inhabitants[inhabitantReceiver]);
-				
+					randomLetter=RandomGenerator.generateRandomLetter(inhabitants[inhabitantSender], inhabitants[inhabitantReceiver]);
 					
 					
 					try {
-						inhabitants[inhabitantSender].sendLetter(new SimpleLetter(inhabitants[inhabitantSender],inhabitants[inhabitantReceiver],new Text("yo")));
+						inhabitants[inhabitantSender].sendLetter(randomLetter);
 					} catch (NotEnoughMoneyException e) {
 						System.out.println(inhabitants[inhabitantSender]+" doesn't have money anymore");
 					}
 				}		
-			}
-			else { //if got some letters in the postbox
-				
-			}
-			
+			}			
 		}while(!city.getPostBox().isEmpty()); 
 	}
 

@@ -20,6 +20,10 @@ public class Text implements Content{
 	public Text(String description){
 		this.description=description;
 	}
+	
+	public Text(){
+		this("bla bla");
+	}
 
 	@Override
 	public String description() {
