@@ -9,4 +9,7 @@ public class MockInhabitant extends Inhabitant{
 		super("Mock habitant", city);
 	}
 
+	public MockInhabitant(City city, double amountBankAccount) {
+		super("Mock habitant", city, amountBankAccount);
+	}
 }
