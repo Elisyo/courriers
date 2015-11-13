@@ -3,9 +3,9 @@ package tests.entities;
 import courriers.entities.City;
 import courriers.entities.Inhabitant;
 
-public class MockHabitant extends Inhabitant{
+public class MockInhabitant extends Inhabitant{
 
-	public MockHabitant(City city) {
+	public MockInhabitant(City city) {
 		super("Mock habitant", city);
 	}
 

@@ -4,14 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import tests.entities.MockHabitant;
+import tests.entities.MockInhabitant;
 import courriers.entities.City;
 import courriers.letter.Letter;
 
 public abstract class LetterTest {
 
-	MockHabitant receiver = new MockHabitant(new City("c1"));
-	MockHabitant sender = new MockHabitant(new City("c2"));
+	MockInhabitant receiver = new MockInhabitant(new City("c1"));
+	MockInhabitant sender = new MockInhabitant(new City("c2"));
 	
 	protected abstract Letter<?> createLetter();
 	
