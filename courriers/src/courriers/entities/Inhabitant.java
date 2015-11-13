@@ -3,6 +3,7 @@ package courriers.entities;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
 import courriers.utils.Constants;
+import courriers.utils.Utils;
 
 /**
  * Class that represents an usual Habitant
@@ -57,7 +58,7 @@ public class Inhabitant {
 	 */
 	public void credit(int amount){
 		this.bankAccount+=amount;
-		System.out.println("   + "+this.name+" account is credited with "+amount+" euros; its balance is now "+bankAccount+" euros");
+		System.out.println("   + "+this.name+" account is credited with "+Utils.amountToString(amount)+"; its balance is now "+Utils.amountToString(this.bankAccount));
 	}
 	
 	/**
@@ -66,7 +67,7 @@ public class Inhabitant {
 	 */
 	public void debit(int amount){
 		this.bankAccount-=amount;
-		System.out.println("   - "+amount+" euros are debited from "+this.name+" account whose balance is now "+bankAccount+" euros");
+		System.out.println("   - "+Utils.amountToString(amount)+" are debited from "+this.name+" account whose balance is now "+Utils.amountToString(this.bankAccount));
 	}
 	
 	/**
@@ -76,10 +77,7 @@ public class Inhabitant {
 	 */
 	public void sendLetter(Letter<?> letter) throws NotEnoughMoneyException{
 		if(this.bankAccount - letter.getCost() >= 0){
-			String euros=" euro";
-			if(letter.getCost()>1)
-				euros=" euros";
-			System.out.println("-> "+this.name+" mails "+letter.description()+" whose content is a "+letter.getContent().description()+" to "+letter.getReceiver().getName()+" for a cost of "+letter.getCost()+euros);
+			System.out.println("-> "+this.name+" mails "+letter.description()+" whose content is a "+letter.getContent().description()+" to "+letter.getReceiver().getName()+" for a cost of "+Utils.amountToString(letter.getCost()));
 			this.debit(letter.getCost());
 			this.city.sendLetter(letter);
 		}
