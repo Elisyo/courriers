@@ -52,7 +52,7 @@ public class Main {
 		UrgentLetter<SimpleLetter> let2=new UrgentLetter<>(let);
 		
 		RegisteredLetter<UrgentLetter<SimpleLetter>> l= new RegisteredLetter<UrgentLetter<SimpleLetter>>(let);
-		UrgentLetter<RegisteredLetter> let3=new UrgentLetter<RegisteredLetter>(l);
+		//UrgentLetter<RegisteredLetter> let3=new UrgentLetter<RegisteredLetter>(l);
 		
 		//END TEST
 		System.out.println("Mailing letters for "+days+" days");

@@ -1,16 +1,24 @@
 package courriers.letter;
 
+
 import courriers.content.Content;
 import courriers.exceptions.NotEnoughMoneyException;
 
-public class UrgentLetter<L extends Letter<? extends Content>> extends Letter<Content>{
-	
-	Letter<?> letter;
+/**
+ * A special letter which can contains all letters instead of itself
+ * @author Loic
+ *
+ * @param <L>
+ */
+public class UrgentLetter<L extends Letter<? extends Content>> extends SpecialLetter<Letter<?>>{
+
 
 	
+	/**
+	 * @param letter
+	 */
 	public UrgentLetter(Letter<?> letter) {
-		super(letter.getSender(), letter.getReceiver());
-		this.letter=letter;
+		super(letter);
 	}
 
 	@Override
@@ -21,7 +29,6 @@ public class UrgentLetter<L extends Letter<? extends Content>> extends Letter<Co
 
 	@Override
 	public double getCost() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

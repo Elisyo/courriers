@@ -3,17 +3,17 @@ package courriers.letter;
 import courriers.content.Content;
 
 /**
- * Registred Letter
- * @author breuzon
+ * Registred Letter can contains all others letters
+ * @author Loic
  *
  */
-public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter{
+public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter<?>>{
 
 	protected double cost = 2.5;
-	Letter<Content> letter;
-	public RegisteredLetter(Letter<Content> letter) {
-		super(letter.getSender(), letter.getReceiver());
-		this.letter=letter;
+
+	public RegisteredLetter(Letter<?> letter) {
+		super(letter);
+
 	}
 
 	

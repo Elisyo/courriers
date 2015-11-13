@@ -1,18 +1,28 @@
 package courriers.letter;
 
 import courriers.content.Content;
-import courriers.entities.Inhabitant;
+import courriers.exceptions.NotEnoughMoneyException;
 
-public class SpecialLetter extends Letter<Content>{
+/**
+ * A decorator for letter which are specials
+ * @author loic
+ *
+ * @param <L>
+ */
+public class SpecialLetter<L extends Letter<?>> extends Letter<Content>{
 
 	protected double cost = 2;
+	protected Letter<?> letterType;
 	
-	public SpecialLetter(Inhabitant sender, Inhabitant receiver) {
-		super(sender, receiver);
+	/**
+	 * @param letter
+	 */
+	public SpecialLetter(Letter<?> letter) {
+		super(letter.getSender(), letter.getReceiver());
 	}
 
 	@Override
-	public void doAction() {
+	public void doAction() throws NotEnoughMoneyException {
 		// TODO Auto-generated method stub
 		
 	}
