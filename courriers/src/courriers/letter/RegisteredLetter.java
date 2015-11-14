@@ -21,7 +21,7 @@ public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter
 	
 	@Override
 	public void doAction() throws NotEnoughMoneyException {
-		receiver.sendLetter(new SimpleLetter(receiver,sender,new Text("(aknowledgment of receipt for a registered letter whose content is a "+ this.letterType.getContent().toString()+" whose "+this.letterType.getContent().description())));		
+		receiver.sendLetter(new AknowledgmentOfReceipt(receiver,sender,new Text("(aknowledgment of receipt for a registered letter whose content is a "+ this.letterType.getContent().toString()+" whose "+this.letterType.getContent().description())));		
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter
 
 	@Override
 	public String description() {
-		return "a registered letter";
+		return "a registered letter whose content is "+this.letterType.description();
 	}
 
 }

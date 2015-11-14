@@ -36,7 +36,7 @@ public class Inhabitant {
 	 * @param city
 	 */
 	public Inhabitant(String name, City city){
-		this(name,city,Constants.initialBankAccount);
+		this(name,city,Constants.INITIAL_BANK_AMOUNT);
 	}
 	
 	/**

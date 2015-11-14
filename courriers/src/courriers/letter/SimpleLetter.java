@@ -15,7 +15,7 @@ public class SimpleLetter extends Letter<Text>{
 	/**
 	 * cost of the letter
 	 */
-	protected int cost = Constants.costOfSimpleLetter;
+	protected int cost = Constants.COST_OF_SIMPLE_LETTER;
 	
 	/**
 	 * Create a SimpleLetter whith a sender and a receiver
@@ -33,7 +33,6 @@ public class SimpleLetter extends Letter<Text>{
 
 	@Override
 	public void doAction() {
-		//System.out.println(getContent().description());
 	}
 
 	@Override
@@ -45,7 +44,4 @@ public class SimpleLetter extends Letter<Text>{
 	public String description() {
 		return "a simple letter";
 	}
-
-
-
 }

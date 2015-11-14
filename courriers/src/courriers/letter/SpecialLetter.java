@@ -2,7 +2,6 @@ package courriers.letter;
 
 import courriers.content.Content;
 import courriers.exceptions.NotEnoughMoneyException;
-
 /**
  * A decorator for letter which are specials
  * @author loic
@@ -21,21 +20,26 @@ public abstract class SpecialLetter<L extends Letter<?>> extends Letter<Content>
 		this.letterType=letter;
 	}
 
-	@Override
-	public void doAction() throws NotEnoughMoneyException {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 	@Override
 	public Content getContent() {
-		// TODO Auto-generated method stub
 		return super.content;
 	}
 
+	/* (non-Javadoc)
+	 * @see courriers.letter.Letter#getCost()
+	 */
 	public abstract int getCost();
 	
+	/* (non-Javadoc)
+	 * @see courriers.content.Content#description()
+	 */
 	public abstract String description();
+	
+	/* (non-Javadoc)
+	 * @see courriers.letter.Letter#doAction()
+	 */
+	public abstract void doAction() throws NotEnoughMoneyException;
 
 }

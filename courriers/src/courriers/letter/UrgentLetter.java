@@ -31,7 +31,7 @@ public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<Letter<?>>{
 
 	@Override
 	public String description() {
-		return "an urgent letter";
+		return "an urgent letter whose content is "+this.letterType.description();
 	}
 
 }

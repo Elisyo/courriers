@@ -6,8 +6,8 @@ package courriers.utils;
  */
 public class Constants {
 	
-	public static final int maxPromissoryNoteAmount=1000;
-	public static final int initialBankAccount=5000;
-	public static final int costOfSimpleLetter=1;
+	public static final int MAX_PROMISSORY_NOTE_AMOUNT=1000;
+	public static final int INITIAL_BANK_AMOUNT=5000;
+	public static final int COST_OF_SIMPLE_LETTER=1;
 
 }

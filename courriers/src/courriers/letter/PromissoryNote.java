@@ -28,7 +28,7 @@ public class PromissoryNote extends Letter<Money>{
 		if(sender.getBankAccount() - this.amount >= 0){
 			sender.debit(amount);
 			receiver.credit(amount);
-			receiver.sendLetter(new SimpleLetter(receiver,sender,new Text("thanks for a promissory note letter whose content is a money content ("+this.amount+")")));
+			receiver.sendLetter(new ThanksLetter(receiver,sender,new Text("thanks for a promissory note letter whose content is a money content ("+this.amount+")")));
 		}
 		else
 			throw new NotEnoughMoneyException("You don't have enough money");

@@ -46,11 +46,12 @@ public class City {
 	 * @throws NotEnoughMoneyException 
 	 */
 	public void distributeLetters(){
-		for(Letter<?> letter : this.postBox){
-			letter.getReceiver().receiveLetter(letter);
+		while(!this.postBox.isEmpty()){
+			this.postBox.get(0).getReceiver().receiveLetter((this.postBox.get(0)));
+			this.postBox.remove(0);
 		}
-		this.postBox.clear();
 	}
+
 	
 	
 	/**

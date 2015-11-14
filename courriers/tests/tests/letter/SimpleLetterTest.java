@@ -2,12 +2,13 @@ package tests.letter;
 
 import org.junit.Test;
 
+import courriers.content.Content;
 import courriers.content.Text;
 import courriers.letter.Letter;
 import courriers.letter.SimpleLetter;
 
 
-public class SimpleLetterTest extends LetterTest {
+public class SimpleLetterTest extends LetterTest<Content> {
 
 	public Letter<?> createLetter(){
 		return new SimpleLetter(receiver,sender);

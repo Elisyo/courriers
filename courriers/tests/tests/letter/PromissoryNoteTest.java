@@ -4,12 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import courriers.content.Content;
 import courriers.content.Money;
 import courriers.letter.Letter;
 import courriers.letter.PromissoryNote;
 import courriers.utils.Constants;
 
-public class PromissoryNoteTest extends LetterTest{
+public class PromissoryNoteTest extends LetterTest<Content>{
 
 	@Override
 	protected Letter<?> createLetter() {
@@ -30,7 +31,7 @@ public class PromissoryNoteTest extends LetterTest{
 	
 	@Test
 	public void maxAmountTest(){
-		assertTrue(new PromissoryNote(sender, receiver).getAmount() < Constants.maxPromissoryNoteAmount);
+		assertTrue(new PromissoryNote(sender, receiver).getAmount() < Constants.MAX_PROMISSORY_NOTE_AMOUNT);
 	}
 
 	

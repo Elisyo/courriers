@@ -53,8 +53,8 @@ public class Main {
 				
 
 				//generate the random number of inhabitants
-				numberOfInhabitant= RandomGenerator.generateRandomNumber(1, maxInhabitants);
-				
+				//numberOfInhabitant= RandomGenerator.generateRandomNumber(1, maxInhabitants);
+				numberOfInhabitant=2;
 
 				for(int i =0;i<numberOfInhabitant;i++){
 					
