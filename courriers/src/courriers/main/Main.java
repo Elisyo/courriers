@@ -61,6 +61,12 @@ public class Main {
 					//generate random index of inhabitants
 					inhabitantSender=RandomGenerator.generateRandomNumber(1, maxInhabitants);
 					inhabitantReceiver = RandomGenerator.generateRandomNumber(1, maxInhabitants);
+					
+					//can't send a letter to himself 
+					while(inhabitantSender==inhabitantReceiver){
+						inhabitantSender=RandomGenerator.generateRandomNumber(1, maxInhabitants);
+					}
+					
 					//generate a random letter type
 					randomLetter=RandomGenerator.generateRandomLetter(inhabitants[inhabitantSender], inhabitants[inhabitantReceiver]);
 					

@@ -44,11 +44,7 @@ public class RandomGenerator {
 		Letter<?>[] letterTab = new Letter<?>[]{new SimpleLetter(sender,receiver),new PromissoryNote(sender,receiver)};
 		return letterTab[generateRandomNumber(0,letterTab.length)];
 	}
-	/*
-	public static Letter<?> generateRandomLetterType(Inhabitant sender,Inhabitant receiver){
-		Letter<?>[] letterType = new Letter<?>[] {};
-		return letterType[generateRandomNumber(0,letterType.length)];
-	}*/
+
 	
 	
 }
