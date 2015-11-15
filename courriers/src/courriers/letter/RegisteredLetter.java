@@ -1,6 +1,5 @@
 package courriers.letter;
 
-import courriers.content.Content;
 import courriers.content.Text;
 import courriers.exceptions.NotEnoughMoneyException;
 
@@ -9,12 +8,12 @@ import courriers.exceptions.NotEnoughMoneyException;
  * @author Loic
  *
  */
-public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter<?>>{	
+public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter<L>{	
 
 	/**
 	 * @param letter
 	 */
-	public RegisteredLetter(Letter<?> letter) {
+	public RegisteredLetter(L letter) {
 		super(letter);
 	}
 
@@ -30,8 +29,8 @@ public class RegisteredLetter<L extends Letter<?>> extends SpecialLetter< Letter
 	}
 
 	@Override
-	public Content getContent() {
-		return super.content;
+	public L getContent() {
+		return this.letterType;
 	}
 
 

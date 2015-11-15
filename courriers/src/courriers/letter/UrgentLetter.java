@@ -10,12 +10,12 @@ import courriers.exceptions.NotEnoughMoneyException;
  *
  * @param <L>
  */
-public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<Letter<?>>{
+public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<L>{
 
 	/**
 	 * @param letter
 	 */
-	public UrgentLetter(Letter<?> letter) {
+	public UrgentLetter(L letter) {
 		super(letter);
 	}
 
@@ -32,6 +32,11 @@ public class UrgentLetter<L extends Letter<?>> extends SpecialLetter<Letter<?>>{
 	@Override
 	public String description() {
 		return "an urgent letter whose content is "+this.letterType.description();
+	}
+	
+	@Override
+	public L getContent() {
+		return this.letterType;
 	}
 
 }

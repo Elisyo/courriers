@@ -1,6 +1,5 @@
 package courriers.letter;
 
-import courriers.content.Content;
 import courriers.exceptions.NotEnoughMoneyException;
 /**
  * A decorator for letter which are specials
@@ -8,24 +7,18 @@ import courriers.exceptions.NotEnoughMoneyException;
  *
  * @param <L>
  */
-public abstract class SpecialLetter<L extends Letter<?>> extends Letter<Content>{
+public abstract class SpecialLetter<L extends Letter<?>> extends Letter<L>{
 	
-	protected Letter<?> letterType;
+	protected L letterType;
 	
 	/**
 	 * @param letter
 	 */
-	public SpecialLetter(Letter<?> letter) {
-		super(letter.getSender(), letter.getReceiver(),letter.getContent());
+	public SpecialLetter(L letter) {
+		super(letter.getSender(), letter.getReceiver(),letter);
 		this.letterType=letter;
 	}
 
-
-
-	@Override
-	public Content getContent() {
-		return super.content;
-	}
 
 	/* (non-Javadoc)
 	 * @see courriers.letter.Letter#getCost()

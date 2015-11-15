@@ -77,7 +77,7 @@ public class Inhabitant {
 	 */
 	public void sendLetter(Letter<?> letter) throws NotEnoughMoneyException{
 		if(this.bankAccount - letter.getCost() >= 0){
-			System.out.println("-> "+this.name+" mails "+letter.description()+" whose content is a "+letter.getContent().description()+" to "+letter.getReceiver().getName()+" for a cost of "+Utils.amountToString(letter.getCost()));
+			System.out.println("-> "+this.name+" mails "+letter.description()+" to "+letter.getReceiver().getName()+" for a cost of "+Utils.amountToString(letter.getCost()));
 			this.debit(letter.getCost());
 			this.city.sendLetter(letter);
 		}
@@ -92,7 +92,7 @@ public class Inhabitant {
 	 * @throws NotEnoughMoneyException 
 	 */
 	public void receiveLetter(Letter<?> letter){
-		System.out.println("<- "+this.name+" receives "+letter.description()+" whose content is a "+letter.getContent().description()+" from "+letter.getSender().getName());
+		System.out.println("<- "+this.name+" receives "+letter.description()+" from "+letter.getSender().getName());
 		try {
 			letter.doAction();
 		} catch (NotEnoughMoneyException e) {
