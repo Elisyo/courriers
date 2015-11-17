@@ -10,7 +10,7 @@ import courriers.letter.Letter;
 import courriers.letter.RegisteredLetter;
 import static org.junit.Assert.*;
 
-public class RegistredLetterTest<L extends Letter<?>> extends
+public class RegisteredLetterTest<L extends Letter<?>> extends
 		DecoratingLetterTest<L> {
 
 	@Override
