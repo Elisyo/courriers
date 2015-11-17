@@ -1,6 +1,7 @@
 package tests.letter;
 
 import courriers.content.Content;
+import courriers.content.Text;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
@@ -8,7 +9,7 @@ import courriers.letter.Letter;
 public class MockLetter extends Letter<Content>{
 
 	public MockLetter(Inhabitant sender, Inhabitant receiver) {
-		super(sender, receiver);
+		super(sender, receiver, new Text("mock"));
 		// TODO Auto-generated constructor stub
 	}
 

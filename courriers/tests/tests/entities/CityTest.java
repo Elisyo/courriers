@@ -6,9 +6,6 @@ import org.junit.Test;
 
 import tests.letter.MockLetter;
 import courriers.entities.City;
-import courriers.entities.Inhabitant;
-import courriers.exceptions.NotEnoughMoneyException;
-import courriers.letter.PromissoryNote;
 
 public class CityTest {
 
@@ -38,11 +35,5 @@ public class CityTest {
 		assertFalse(city1.getPostBox().isEmpty());
 		city1.distributeLetters();
 		assertTrue(city1.getPostBox().isEmpty());
-	}
-	
-	@Test (expected = NotEnoughMoneyException.class)
-	public void distributeLettersWithoutEnoughMoney(){
-		city1.sendLetter(new PromissoryNote(new Inhabitant("name1", city1, 20), new Inhabitant("name2", city2), 5000));
-		city1.distributeLetters();
 	}
 }

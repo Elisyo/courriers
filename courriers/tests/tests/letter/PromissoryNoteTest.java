@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import courriers.content.Content;
 import courriers.content.Money;
+import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
 import courriers.letter.PromissoryNote;
 import courriers.utils.Constants;
@@ -32,6 +33,31 @@ public class PromissoryNoteTest extends LetterTest<Content>{
 	@Test
 	public void maxAmountTest(){
 		assertTrue(new PromissoryNote(sender, receiver).getAmount() < Constants.MAX_PROMISSORY_NOTE_AMOUNT);
+	}
+	
+	@Test
+	public void doActionTest() throws NotEnoughMoneyException{
+		sender.setBankAccount(2000);
+		receiver.setBankAccount(2000);
+		PromissoryNote letter = new PromissoryNote(sender, receiver,1000);
+		
+		assertEquals(2000, sender.getBankAccount(), 0.01);
+		assertEquals(2000, receiver.getBankAccount(), 0.01);
+		System.out.println("*******************");
+		letter.doAction();
+		
+		assertEquals(1000, sender.getBankAccount(), 0.1);
+		assertEquals(3000, receiver.getBankAccount(),1);
+		
+	}
+	
+	@Test (expected = NotEnoughMoneyException.class)
+	public void doActionExceptiontest() throws NotEnoughMoneyException{
+		sender.setBankAccount(20);
+		receiver.setBankAccount(20);
+		PromissoryNote letter = new PromissoryNote(sender, receiver,1000);
+System.out.println("*********************");
+		letter.doAction();
 	}
 
 	

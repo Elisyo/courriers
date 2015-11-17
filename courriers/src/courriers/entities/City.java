@@ -3,7 +3,6 @@ package courriers.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
 
 /**
@@ -43,7 +42,6 @@ public class City {
 	
 	/**
 	 * Distribute all the letters to their receiver every day
-	 * @throws NotEnoughMoneyException 
 	 */
 	public void distributeLetters(){
 		while(!this.postBox.isEmpty()){
