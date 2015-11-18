@@ -1,16 +1,25 @@
 package tests.letter;
 
-import courriers.content.Content;
+import org.junit.Test;
+
+import courriers.entities.Inhabitant;
 import courriers.letter.Letter;
+import courriers.letter.SpecialLetter;
 import courriers.letter.UrgentLetter;
 
-public class UrgentLetterTest extends LetterTest<Content>{
+public class UrgentLetterTest extends DecoratingLetterTest<Letter<?>>{
 
 	@Override
-	protected Letter<?> createLetter() {
+	protected SpecialLetter<MockLetter> createLetter(Inhabitant sender,
+			Inhabitant receiver) {
 		// TODO Auto-generated method stub
-		MockLetter letter = new MockLetter(sender, receiver);
-		return new UrgentLetter<Letter<?>>(letter);
+		return new UrgentLetter<MockLetter>(mockletter);
+	}
+	
+	@Test
+	public void letterTypeContentTest(){
+		@SuppressWarnings("unused")
+		Letter<?> l = new UrgentLetter<Letter<?>>(mockletter).getContent();
 	}
 
 }

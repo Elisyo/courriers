@@ -32,5 +32,9 @@ public class Money implements Content{
 	public String description() {
 		return "money content ("+this.amount+")";
 	}
+	
+	public int getAmount(){
+		return this.amount;
+	}
 
 }
