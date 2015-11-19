@@ -1,18 +1,17 @@
 package tests.letter;
 
+import org.junit.Test;
+
 import courriers.letter.Letter;
 import courriers.letter.SpecialLetter;
-import courriers.entities.Inhabitant;
 
-public abstract class DecoratingLetterTest<L extends Letter<?>> extends LetterTest<MockLetter>{
+public abstract class DecoratingLetterTest extends LetterTest{
 	
-	MockLetter mockletter = new MockLetter(sender, receiver);
-
-	@Override
-	protected Letter<?> createLetter() {
-		return createLetter(sender, receiver);
-	}
+	protected MockLetter mockLetter = new MockLetter(sender, receiver);
 	
-	protected abstract SpecialLetter<MockLetter> createLetter(Inhabitant sender, Inhabitant receiver);
+	public abstract SpecialLetter<Letter<?>> createLetter();
+	
+	@Test
+	public abstract void getDescriptionTest();
 
 }

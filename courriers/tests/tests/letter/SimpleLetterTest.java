@@ -1,16 +1,16 @@
 package tests.letter;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import courriers.content.Content;
+import org.junit.Test;
 import courriers.content.Text;
 import courriers.letter.Letter;
 import courriers.letter.SimpleLetter;
 
 
-public class SimpleLetterTest extends LetterTest<Content> {
+public class SimpleLetterTest extends LetterTest {
 
-	public Letter<?> createLetter(){
+	public Letter<Text> createLetter(){
 		return new SimpleLetter(receiver,sender);
 	}
 	
@@ -19,6 +19,13 @@ public class SimpleLetterTest extends LetterTest<Content> {
 
 		@SuppressWarnings("unused")
 		Text text = new SimpleLetter(sender, receiver).getContent();
+	}
+	
+	@Override
+	public void getDescriptionTest(){
+		Letter<?> simpleLetter=createLetter();
+		assertEquals(simpleLetter.description(),"a simple letter whose content is "+new Text().description());
+				
 	}
 
 }

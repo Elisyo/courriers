@@ -1,12 +1,11 @@
 package tests.letter;
 
-import courriers.content.Content;
 import courriers.content.Text;
 import courriers.entities.Inhabitant;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
 
-public class MockLetter extends Letter<Content>{
+public class MockLetter extends Letter<Text>{
 
 	public MockLetter(Inhabitant sender, Inhabitant receiver) {
 		super(sender, receiver, new Text("mock"));
@@ -27,7 +26,6 @@ public class MockLetter extends Letter<Content>{
 
 	@Override
 	public String description() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

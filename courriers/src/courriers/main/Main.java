@@ -13,7 +13,7 @@ import courriers.utils.RandomGenerator;
 public class Main {
 	
 	protected static int maxInhabitants = 100;
-	protected static int days=2;
+	protected static int days=6;
 	
 	public static void main(String [] args){
 		
@@ -53,8 +53,7 @@ public class Main {
 				
 
 				//generate the random number of inhabitants
-				//numberOfInhabitant= RandomGenerator.generateRandomNumber(1, maxInhabitants);
-				numberOfInhabitant=2;
+				numberOfInhabitant= RandomGenerator.generateRandomNumber(1, 10);
 
 				for(int i =0;i<numberOfInhabitant;i++){
 					

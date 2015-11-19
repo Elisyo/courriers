@@ -12,12 +12,6 @@ public class NotEnoughMoneyException extends Exception{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Simple constructor without error message
-	 */
-	public NotEnoughMoneyException(){
-		super();
-	}
 	
 	/**
 	 * display the error message

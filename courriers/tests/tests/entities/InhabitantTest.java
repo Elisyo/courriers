@@ -2,6 +2,7 @@ package tests.entities;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import tests.letter.MockLetter;
@@ -9,49 +10,65 @@ import courriers.entities.City;
 import courriers.exceptions.NotEnoughMoneyException;
 
 public class InhabitantTest {
+	
+	private City city;
+	private MockLetter letter;
+	private MockInhabitant sender;
+	private MockInhabitant receiver;
+	
+	@Before
+	public void inititialize(){
+		city=new City("City test");
+		sender = new MockInhabitant(city, 1000);
+		receiver = new MockInhabitant(city, 1000);
+		letter = new MockLetter(sender, receiver);
+	}
 
 	@Test
 	public void creditTest(){
-		MockInhabitant inhabitant = new MockInhabitant(new City("c"),20);
-		assertTrue(inhabitant.getBankAccount()==20);
-		
-		inhabitant.credit(50);
-		assertTrue(inhabitant.getBankAccount()==70);
+		sender.setBankAccount(20);
+		assertTrue(sender.getBankAccount()==20);
+		sender.credit(50);
+		assertTrue(sender.getBankAccount()==70);
 		return;
 	}
 	
 	@Test
 	public void debitTest(){
-		MockInhabitant inhabitant = new MockInhabitant(new City("c"),20);
+		sender.setBankAccount(20);
 		
-		inhabitant.debit(15);
-		assertTrue(inhabitant.getBankAccount()==5);
+		sender.debit(15);
+		assertTrue(sender.getBankAccount()==5);
 		
-		inhabitant.debit(10);
-		assertTrue(inhabitant.getBankAccount()==-5);
+		sender.debit(10);
+		assertTrue(sender.getBankAccount()==-5);
 		return;
 	}
 	
 	@Test
 	public void sendLetterTest() throws NotEnoughMoneyException{
-		MockInhabitant mock1 = new MockInhabitant(new City("city1"), 1000);
-		MockInhabitant mock2 = new MockInhabitant(new City("city2"), 1000);
-		MockLetter letter = new MockLetter(mock1, mock2);
+		assertEquals(sender.getNumberOfLetterSent(),0);		
+		assertEquals(sender.getBankAccount(), 1000, 0.0001);
 		
-		assertEquals(mock1.getBankAccount(), 1000, 0.0001);
+		sender.sendLetter(letter);
+		 
+		assertEquals(sender.getNumberOfLetterSent(),1);
+		assertEquals(sender.getBankAccount(), 999, 0.0001);
+	}
+	
+	@Test
+	public void receiveLetterTest() throws NotEnoughMoneyException{
+		assertEquals(receiver.getNumberOfLetterReceived(),0);	
+		sender.sendLetter(letter);
+		city.distributeLetters();
+		assertEquals(receiver.getNumberOfLetterReceived(),1);
 		
-		mock1.sendLetter(letter);
-		
-		assertEquals(mock1.getBankAccount(), 999, 0.0001);
 	}
 	
 	@Test(expected = NotEnoughMoneyException.class)
 	public void cannotSendLetterTest() throws NotEnoughMoneyException{
-		MockInhabitant mock1 = new MockInhabitant(new City("city1"), 0);
-		MockInhabitant mock2 = new MockInhabitant(new City("city2"), 0);
-		MockLetter letter = new MockLetter(mock1, mock2);
-		
-		mock1.sendLetter(letter);
+		sender.setBankAccount(0);
+		sender.sendLetter(letter);
 	}
 	
 }

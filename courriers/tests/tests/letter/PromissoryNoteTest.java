@@ -1,20 +1,17 @@
 package tests.letter;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
-import courriers.content.Content;
 import courriers.content.Money;
 import courriers.exceptions.NotEnoughMoneyException;
 import courriers.letter.Letter;
 import courriers.letter.PromissoryNote;
 import courriers.utils.Constants;
 
-public class PromissoryNoteTest extends LetterTest<Content>{
+public class PromissoryNoteTest extends LetterTest{
 
 	@Override
-	protected Letter<?> createLetter() {
+	protected Letter<Money> createLetter() {
 		// TODO Auto-generated method stub
 		return new PromissoryNote(sender, receiver, 5);
 	}
@@ -56,8 +53,13 @@ public class PromissoryNoteTest extends LetterTest<Content>{
 		sender.setBankAccount(20);
 		receiver.setBankAccount(20);
 		PromissoryNote letter = new PromissoryNote(sender, receiver,1000);
-System.out.println("*********************");
 		letter.doAction();
+	}
+
+	@Override
+	public void getDescriptionTest() {
+		Letter<?> promissoryNote=createLetter();
+		assertEquals(promissoryNote.description(),"a promissory note letter whose content is "+new Money(5).description());
 	}
 
 	
